@@ -39,7 +39,6 @@ void loop() {
   Serial.print(good_count); Serial.print("\t");
   Serial.print(poor_count); Serial.print("\t");
   Serial.print(vpoor_count); Serial.print("\t");
-  
   //  Serial.print(isAllNormal); Serial.print("\t");
   if (suspensi_1.isNormal() && suspensi_2.isNormal() && suspensi_3.isNormal() && suspensi_4.isNormal() && !isAllNormal) {
     float balance[TOTAL_SUSPENSION] = {suspensi_1.getLastAnalyzed(),
@@ -47,9 +46,12 @@ void loop() {
                                        suspensi_3.getLastAnalyzed(),
                                        suspensi_4.getLastAnalyzed()
                                       };
+
     Analyze(getAverage(balance, TOTAL_SUSPENSION));
+
+
     Serial.print("analyzed");
-    delay(500);
+    delay(1000);
     isAllNormal = true;
     suspensi_1.reset();
     suspensi_2.reset();
@@ -61,7 +63,7 @@ void loop() {
   }
   Serial.println();
 
-//  if (digitalRead(53) == LOW) {
-//    viewResult();
-//  }
+  //  if (digitalRead(53) == LOW) {
+  //    viewResult();
+  //  }
 }

@@ -12,10 +12,10 @@
  * Apabila ingin menambah jumlah suspensi tinggal tambah "#define PIN_SUSPENSI_5 <pin analog>" dan seterusnya
  */
 #define TOTAL_SUSPENSION 4
-#define PIN_SUSPENSI_1 A0
-#define PIN_SUSPENSI_2 A1
-#define PIN_SUSPENSI_3 A2
-#define PIN_SUSPENSI_4 A3
+#define PIN_SUSPENSI_1 A11
+#define PIN_SUSPENSI_2 A11
+#define PIN_SUSPENSI_3 A12
+#define PIN_SUSPENSI_4 A12
 
 /*
  * Variabel tidak boleh di otak-atik
