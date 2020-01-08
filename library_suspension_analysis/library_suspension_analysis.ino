@@ -8,8 +8,8 @@ suspensionAcquisition suspensi_1, suspensi_2, suspensi_3, suspensi_4;
 
 
 void setup() {
-  pinMode(53, 0);
-  digitalWrite(53, 1);
+  pinMode(7, 0);
+  digitalWrite(7, 1);
   // put your setup code here, to run once:
   Serial.begin(115200);
   suspensi_1.begin(PIN_SUSPENSI_1);
@@ -33,8 +33,13 @@ void loop() {
   Serial.print(suspensi_1.getSensorVolt()); Serial.print("\t");
   Serial.print(suspensi_2.getSensorVolt()); Serial.print("\t");
   Serial.print(suspensi_3.getSensorVolt()); Serial.print("\t");
-  //  Serial.print(suspensi_1.getMaxVal()); Serial.print("\t");
-  //  Serial.print(suspensi_1.isNormal()); Serial.print("\t");
+  Serial.print(suspensi_4.getSensorVolt()); Serial.print("\t");
+
+  Serial.print("jumlah Normal, poor, v_poor"); Serial.print("\t");
+  Serial.print(good_count); Serial.print("\t");
+  Serial.print(poor_count); Serial.print("\t");
+  Serial.print(vpoor_count); Serial.print("\t");
+  
   //  Serial.print(isAllNormal); Serial.print("\t");
   if (suspensi_1.isNormal() && suspensi_2.isNormal() && suspensi_3.isNormal() && suspensi_4.isNormal() && !isAllNormal) {
     float balance[TOTAL_SUSPENSION] = {suspensi_1.getLastAnalyzed(),
@@ -44,7 +49,7 @@ void loop() {
                                       };
     Analyze(getAverage(balance, TOTAL_SUSPENSION));
     Serial.print("analyzed");
-    delay(1000);
+    delay(500);
     isAllNormal = true;
     suspensi_1.reset();
     suspensi_2.reset();
@@ -56,7 +61,7 @@ void loop() {
   }
   Serial.println();
 
-  if (digitalRead(53) == LOW) {
-    viewResult();
-  }
+//  if (digitalRead(53) == LOW) {
+//    viewResult();
+//  }
 }
