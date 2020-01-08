@@ -26,3 +26,5 @@ String status;
 
 float good_count = 0, poor_count = 0, vpoor_count = 0;
 float balance[TOTAL_SUSPENSION];
+float average;
+char text_lcd[16];
